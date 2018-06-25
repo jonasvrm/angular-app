@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +9,31 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm : FormGroup = new FormGroup({
-		email: new FormControl(null, [Validators.email, Validators.required]),
-		password: new FormControl(null, Validators.required),
-	})
+	loginForm : FormGroup = new FormGroup({
+			email: new FormControl(null, [Validators.email, Validators.required]),
+			password: new FormControl(null, Validators.required),
+		})
 
-  constructor() { }
+	constructor(private userService: UserService) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
-  login(){
-    if (!this.loginForm.valid) {
+	login(){
+		if (!this.loginForm.valid) {
 			console.log("Invalid credentials!");
-			return;
 		}else{
-			console.log(JSON.stringify(this.loginForm.value));
+			this.userService.login(JSON.stringify(this.loginForm.value))
+			.subscribe(
+				data => { 
+					console.log("Success: " + data); 
+				},
+				error => {
+					console.log("Error: " + error.message);
+				}
+				
+			)
 		}
-  }
+	}
 
 }
