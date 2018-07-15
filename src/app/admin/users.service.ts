@@ -7,15 +7,22 @@ import 'rxjs/add/operator/map';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsersService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-	getAll(): Observable<User[]> {
-		return this._http.get("http://localhost:3000/user/all", {
+	getUsers(): Observable<User[]> {
+    return this.http.get("http://localhost:3000/user/all")
+      .map(response => response as User[]);
+  }
+
+  delete(id: string) {
+    return this.http.delete("http://localhost:3000/user/delete/"+id, {
+			observe: "body",
+			withCredentials: true,
 			headers: new HttpHeaders().append("Content-Type", "application/json")
-		})
-		.map(res => res.json());
-		
-	}
+		}); 
+  }
 }
+

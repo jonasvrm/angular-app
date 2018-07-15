@@ -12,6 +12,10 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { UsersListComponent } from './admin/users-list/users-list.component';
 
+//import the authentication JWT HTTP interceptor
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/auth/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,12 @@ import { UsersListComponent } from './admin/users-list/users-list.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },
+  UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

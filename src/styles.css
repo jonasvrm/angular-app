@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* Change font awesome icon color - on hover */
+
+
+
+/* Trashcan -> red */
+.BtnDelete .fa-trash-alt {
+    font-size: 18px;
+}
+
+.BtnDelete .fa-trash-alt:hover, .fa-trash-alt:focus {
+    transition: color 0.3s ease;
+    color: red;
+    text-decoration: none; 
+    cursor: pointer;
+}
+
+/* Edit icon -> yellow */
+.BtnEdit .fa-pencil-alt {
+    font-size: 18px;
+}
+
+.fa-pencil-alt:hover, .fa-pencil-alt:focus {
+    transition: color 0.3s ease;
+    color: blue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.top-buffer {
+    margin-top: 15px;
+}

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 			this.userService.login(JSON.stringify(this.loginForm.value))
 			.subscribe(
 				data => { 
-					console.log("Success: " + data); 
+					this.userService.setSession(data);
 				},
 				error => {
 					console.log("Error: " + error.message);
@@ -35,5 +35,4 @@ export class LoginComponent implements OnInit {
 			)
 		}
 	}
-
 }

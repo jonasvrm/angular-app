@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from "../../shared/models/user";
 import { UsersService } from '../users.service';
 
 @Component({
@@ -8,24 +9,24 @@ import { UsersService } from '../users.service';
 })
 export class UsersListComponent implements OnInit {
 
-	users : any[];
+	userslist: User[];
 
-	constructor(private _usersService : UsersService) { }
+	constructor(private usersService : UsersService) { }
 
 	ngOnInit() {
+		this.getUsers();
 	}
 
-	listUsers(){
-		this._usersService.getAll()
-		.subscribe(
-			data => { 
-				this.users = JSON.parse(data);
-			},
-			error => {
-				console.log("Error: " + error.message);
-			}
-			
-		)
+	private getUsers(){
+		this.usersService.getUsers()
+		.subscribe(users => {
+			this.userslist = users;
+		});
+	}
+
+	public delete(id: string){
+		this.usersService.delete(id)
+			.subscribe(data => this.getUsers());
 	}
 
 }

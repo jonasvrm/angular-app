@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
     <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#NavBarMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,10 +16,10 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/users/all']" >Users</a>
+                <a class="nav-link" [routerLink]="['/admin/users']" >Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" >Orgs</a>
+                <a class="nav-link">Orgs</a>
             </li>
         </ul>
         
@@ -34,11 +34,10 @@
             <li class="nav-item pull-right">
                 <a class="nav-link" [routerLink]="['/user/profile']" routerLinkActive="active">My Account</a>
             </li>
-        </ul>
-       
+        </ul>      
     </div>
 </nav>
 
-<div class="Container">
+<div class="container">
     <router-outlet></router-outlet>
 </div>
