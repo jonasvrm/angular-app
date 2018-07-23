@@ -4,9 +4,6 @@ body {
 }
 
 /* Change font awesome icon color - on hover */
-
-
-
 /* Trashcan -> red */
 .BtnDelete .fa-trash-alt {
     font-size: 18px;
@@ -33,4 +30,11 @@ body {
 
 .top-buffer {
     margin-top: 15px;
+}
+
+/* GENERIC */
+/* SPACING */
+
+.row{
+    padding: 15px 0;
 }

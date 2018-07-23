@@ -14,12 +14,12 @@
 						<td>{{user._id}}</td>
 						<td>{{user.email}}</td>
 						<td>
-							<span class="BtnDelete" (click)="delete(user._id)">
-								<i class="fas fa-trash-alt"></i>
-							</span>&nbsp;
-							<span class="BtnEdit">
+							<span class="BtnEdit mr-2" (click)="edit(user._id)">
 								<i class="fas fa-pencil-alt"></i>
 							</span>
+							<span class="BtnDelete mr-2" (click)="delete(user._id)">
+								<i class="fas fa-trash-alt"></i>
+							</span>&nbsp;							
 						</td>
 					</tr>
 				</tbody>
@@ -27,3 +27,4 @@
 		</div>
 	</div>
 </div>
+<app-modal></app-modal>

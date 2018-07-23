@@ -10,11 +10,14 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
-import { UsersListComponent } from './admin/users-list/users-list.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
 
 //import the authentication JWT HTTP interceptor
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth/auth.interceptor';
+import { ModalComponent } from './shared/modal/modal.component';
+import { UsersEditComponent } from './users/users-edit/users-edit.component';
+import { ModalDirective } from './shared/modal/modal.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AuthInterceptor } from './shared/auth/auth.interceptor';
     LoginComponent,
     ProfileComponent,
     NavigationComponent,
-    UsersListComponent
+    UsersListComponent,
+    ModalComponent,
+    UsersEditComponent,
+    ModalDirective
   ],
   imports: [
     BrowserModule,

@@ -24,5 +24,10 @@ export class UsersService {
 			headers: new HttpHeaders().append("Content-Type", "application/json")
 		}); 
   }
+
+  getUser(id: string) {
+    return this.http.get("http://localhost:3000/user/"+id)
+      .map(response => response as User);
+  }
 }
 
