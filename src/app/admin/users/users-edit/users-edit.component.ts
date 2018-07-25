@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalComponent } from '../../shared/modal/modal.component';
-import { User } from '../../shared/models/user';
+import { User } from '../../../shared/models/user';
 import { UsersService } from '../users.service';
 
 @Component({
