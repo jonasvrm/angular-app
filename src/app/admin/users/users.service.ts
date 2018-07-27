@@ -18,7 +18,15 @@ export class UsersService {
   }
 
   delete(id: string) {
-    return this.http.delete("http://localhost:3000/user/delete/"+id, {
+    return this.http.delete("http://localhost:3000/user/"+id, {
+			observe: "body",
+			withCredentials: true,
+			headers: new HttpHeaders().append("Content-Type", "application/json")
+		}); 
+  }
+
+  update(user: User) {
+    return this.http.patch("http://localhost:3000/user/"+user._id, user, {
 			observe: "body",
 			withCredentials: true,
 			headers: new HttpHeaders().append("Content-Type", "application/json")

@@ -1,31 +1,68 @@
-<h3>All Users</h3>
-
 <div class="row">
 	<div class="col-lg-12">
+		<h3>All Users</h3>		
+	</div>	
+	<div class="offset-lg-9 col-lg-3">
+		<div class="input-group mb-2">
+			<input type="search" class="form-control" placeholder="Search..." (keyup)="search()" [(ngModel)] = "searchText">
+		</div>				
+	</div>	
+	<div class="col-lg-12">		
 		<div class="table-responsive">
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th scope="col">ID</th>
 						<th scope="col">Email</th>
-						<th scope="col">&nbsp;</th>
+						<th scope="col" class="d-none d-sm-table-cell">Name</th>
+						<th scope="col" class="text-right">
+							<span class="BtnRefresh mr-2" (click)="getUsers()">
+								<div class="fas fa-sync-alt"></div>
+							</span>							
+						</th>
 					</tr>
 				</thead>
-				<tbody>
+
+				<!-- Display if userlist is not empty -->
+				<tbody *ngIf="userslist.length > 0; else list_empty">
 					<tr *ngFor="let user of userslist">
-						<td>{{user._id}}</td>
-						<td><a [routerLink]="[user._id]">{{user.email}}</a></td>
 						<td>
-							<span class="BtnEdit mr-2" (click)="edit(user._id)">
-								<i class="fas fa-pencil-alt"></i>
+							<span class="font-weight-bold btn-cursor" (click)="details(user._id)">{{user.email}}</span><br>
+							<span class="font-weight-light font-size-10">{{user._id}}</span>
+						</td>
+						<td class="d-none d-sm-table-cell">
+							{{ user.firstname }} {{ user.lastname }}
+						</td>
+
+						<!-- OPTIONS -->
+						<td class="text-right btn-cursor" href="#" id="optionsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="font-size-18 mr-2 dropdown-toggle" ></span>
+							<span class="dropdown-menu" aria-labelledby="optionsDropdown">
+								<span class="dropdown-item" (click)="details(user._id)">
+									<span>Details</span>
+								</span>
+								<span class="dropdown-item" (click)="edit(user._id)">
+									<span>Edit</span>
+								</span>
+								<span class="dropdown-item" (click)="delete(user._id)">
+									<span>Delete</span>
+								</span>
 							</span>
-							<span class="BtnDelete mr-2" (click)="delete(user._id)">
-								<i class="fas fa-trash-alt"></i>
-							</span>&nbsp;							
 						</td>
 					</tr>
 				</tbody>
+
+				<!-- Display if userlist is empty -->
+				<ng-template #list_empty>
+					<td colspan="3" class="text-center" *ngIf="loading; else no_users">		
+						<app-preloader #preLoader></app-preloader>
+					</td>
+					<ng-template #no_users>
+						<div class="m-2">
+							Sorry, no users were found.
+						</div>
+					</ng-template>
+				</ng-template>
 			</table>
-		</div>
-	</div>
+		</div>				
+	</div>	
 </div>

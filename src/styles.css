@@ -3,6 +3,15 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.BtnRefresh {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-cursor{
+    cursor: pointer;
+}
+
 /* Change font awesome icon color - on hover */
 /* Trashcan -> red */
 .BtnDelete .fa-trash-alt {
@@ -38,3 +47,24 @@ body {
 .row{
     padding: 15px 0;
 }
+
+
+/* ANIMATIONS */
+.rotate360:hover {
+    -moz-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+
+
+/* FONT SIZE */
+.font-size-8{ font-size: 8px; }
+.font-size-10{ font-size: 10px; }
+.font-size-12{ font-size: 12px; }
+.font-size-14{ font-size: 14px; }
+.font-size-16{ font-size: 16px; }
+.font-size-18{ font-size: 18px; }

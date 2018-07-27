@@ -21,7 +21,7 @@ import { AuthInterceptor } from './shared/auth/auth.interceptor';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    NavigationComponent
+    NavigationComponent,
    ],
   imports: [
     BrowserModule,
