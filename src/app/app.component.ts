@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   name = '';
+
+  constructor(private userService: UserService) {}
+
+  public getUserName(){
+    return localStorage.getItem('user_firstname');
+  }
+
+  public logout(){
+    this.userService.logout();
+  }
 }

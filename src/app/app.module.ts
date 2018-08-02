@@ -3,6 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { GlobalErrorHandler } from "./GlobalErrorHandler";
@@ -28,7 +29,8 @@ import { AuthInterceptor } from './shared/auth/auth.interceptor';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

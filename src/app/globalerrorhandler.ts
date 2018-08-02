@@ -6,8 +6,7 @@ export class GlobalErrorHandler implements ErrorHandler {
   constructor() { }
 
   handleError(error) {
-     console.log(error)
-     console.log('test');
+     console.log(error);
 
      // IMPORTANT: Rethrow the error otherwise it gets swallowed
      throw error;

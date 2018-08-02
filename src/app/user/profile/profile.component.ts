@@ -12,16 +12,13 @@ export class ProfileComponent implements OnInit {
 
   user : User = new User();
   
-  constructor(private userService: UserService, private router: Router) {
-    this.userService.profile()
-    .subscribe(
-      data => this.user = data as User,
-      error => console.log(error)
-    )
-  }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    
+    this.userService.getUser(localStorage.getItem('user_id'))
+    .subscribe(
+      data => this.user = data as User
+    )
   }
 
 }
