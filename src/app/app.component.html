@@ -4,11 +4,11 @@
     </button>
     <div id="NavBarMenu" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li ngbDropdown class="nav-item">
+                <a ngbDropdownToggle class="nav-link btn-cursor" id="navbarDropdown" role="button">
                     Admin
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" [routerLink]="['/admin/users']" >Users</a>
                     <a class="dropdown-item" >Categories</a>
                     <div class="dropdown-divider"></div>
@@ -46,7 +46,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="generalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="GeneralModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -55,8 +55,8 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body">
-            <router-outlet name="modal"></router-outlet>
+        <div id="GeneralModalBody" class="modal-body">
+
         </div>
         <div class="modal-footer">
 

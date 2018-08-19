@@ -12,6 +12,16 @@ body {
     cursor: pointer;
 }
 
+.btn-options{
+    width: 100%;
+    background-color: transparent;
+}
+
+.btn-options:focus {
+    outline: none !important; 
+    box-shadow: none !important;
+}
+
 /* Change font awesome icon color - on hover */
 /* Trashcan -> red */
 .BtnDelete .fa-trash-alt {
