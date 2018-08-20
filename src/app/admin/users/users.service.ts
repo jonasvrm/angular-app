@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../../shared/models/user";
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 @Injectable({
@@ -9,7 +9,6 @@ import 'rxjs/add/operator/map';
 })
 
 export class UsersService {
-
   constructor(private http:HttpClient) { }
 
 	getUsers(): Observable<User[]> {

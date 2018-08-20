@@ -72,9 +72,9 @@ export class UsersListComponent implements OnInit {
 	}
 
 	public edit(id: string){	
-		//this.router.navigate(['/admin/users/'+id+'/edit']);
-		const modalRef = this.modalService.open(UsersEditComponent);
-		modalRef.componentInstance.id = id;
+		this.router.navigate(['/admin/users/'+id+'/edit']);
+		// const modalRef = this.modalService.open(UsersEditComponent);
+		// modalRef.componentInstance.id = id;
 
 	}
 

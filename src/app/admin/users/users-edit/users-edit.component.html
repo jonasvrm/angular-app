@@ -1,24 +1,26 @@
-<div class="modal-header">
-    <h4>Edit User Details</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="modal-body">
-    <form method="post" class="top-buffer m-3">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="firstname">First Name</label>
-                <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname" placeholder="First Name">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="lastname">Last Name</label>
-                <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname" placeholder="Last Name">
-            </div>
-        </div>       
-    </form>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-default float-right" (click)="activeModal.dismiss('Cross click')">Cancel</button>
-    <button class="btn btn-primary float-right" (click)="update()">Save</button>
+<h4>Edit User Details</h4>
+<form method="post" class="top-buffer m-3">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            ID: #{{user._id}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname" placeholder="Last Name">
+        </div>
+    </div>   
+</form>
+<div class="row">
+    <div class="offset-md-8 col-md-2 col-sm-12">
+        <button class="btn btn-block btn-default m-1" (click)="back()">Back</button>                
+    </div>
+    <div class="col-md-2 col-sm-12">
+        <button class="btn btn-block btn-primary m-1" (click)="update()">Save</button>                 
+    </div>   
 </div>

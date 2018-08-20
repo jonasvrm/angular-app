@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { User } from '../../../shared/models/user';
 import { UsersService } from '../users.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-users-edit',
@@ -14,7 +14,7 @@ export class UsersEditComponent implements OnInit {
   @Input() id: string;
   user: User = new User();
   
-  constructor(private router: Router, private route: ActivatedRoute, private usersService : UsersService, public activeModal: NgbActiveModal) { }
+  constructor(private router: Router, private route: ActivatedRoute, private usersService : UsersService, private location: Location) { }
 
   ngOnInit() {
     //this.getUser(this.route.snapshot.params.id);
@@ -41,4 +41,8 @@ export class UsersEditComponent implements OnInit {
       }
 		});
   }  
+
+  public back(){
+    this.location.back();
+  }
 }
